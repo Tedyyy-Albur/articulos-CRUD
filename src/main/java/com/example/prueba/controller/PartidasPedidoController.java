@@ -36,6 +36,11 @@ public class PartidasPedidoController {
         return  partidasPedidoService.insertarPedido(partidasPedidoModel);
     }
     @ResponseBody
+    @RequestMapping(value = "/obtener", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<ImprimirModel> mostrarPedidos(@RequestParam Integer id) {
+        return partidasPedidoService.imprimirPedido(id);
+    }
+    @ResponseBody
     @RequestMapping(value = "/imprimir", method = RequestMethod.POST,  produces = MediaType.APPLICATION_JSON_VALUE)
     public Map<String, String> getDocument(@RequestParam Integer id, HttpServletResponse response) throws IOException, JRException {
 
