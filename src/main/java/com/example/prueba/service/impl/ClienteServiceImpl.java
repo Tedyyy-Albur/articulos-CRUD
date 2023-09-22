@@ -30,6 +30,10 @@ public class ClienteServiceImpl implements ClienteService {
 
     @Override
     public Respuesta eliminarCliente(Integer id) {
-        return new Respuesta(1,"Ejecutado", "exito", clienteRepository.eliminarCliente(id));
+        try {
+            return new Respuesta(1,"Ejecutado", "exito", clienteRepository.eliminarCliente(id));
+        } catch (Exception e){
+            return new Respuesta(1,"Ejecutado", "exito", 0);
+        }
     }
 }

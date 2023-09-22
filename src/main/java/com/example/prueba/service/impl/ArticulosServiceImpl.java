@@ -39,6 +39,10 @@ public class ArticulosServiceImpl implements ArticulosService {
 
     @Override
     public Respuesta eliminarArticulo(Integer id) {
-        return new Respuesta(1,"Ejecutado", "exito", articuloRepo.eliminarArticulo(id));
+        try {
+            return new Respuesta(1,"Ejecutado", "exito", articuloRepo.eliminarArticulo(id));
+        } catch (Exception e){
+            return new Respuesta(1,"Ejecutado", "exito", 0);
+        }
     }
 }
